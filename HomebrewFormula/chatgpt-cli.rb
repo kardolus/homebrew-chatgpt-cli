@@ -11,7 +11,7 @@ class ChatgptCli < Formula
   end
 
   def install
-    bin.install "chatgpt"
+    bin.install buildpath/"chatgpt"
   end
 
   test do
