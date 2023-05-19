@@ -11,7 +11,11 @@ class ChatgptCli < Formula
   end
 
   def install
-    bin.install "chatgpt-darwin-arm64"
+    if Hardware::CPU.intel?
+        bin.install "chatgpt-darwin-amd64" => "chatgpt"
+    elsif Hardware::CPU.arm?
+        bin.install "chatgpt-darwin-arm64" => "chatgpt"
+    end
   end
 
   test do
