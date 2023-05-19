@@ -1,7 +1,7 @@
 class ChatgptCli < Formula
   desc "A CLI for the OpenAI ChatGPT API"
   homepage "https://github.com/kardolus/chatgpt-cli"
-  
+
   if Hardware::CPU.intel?
     url "https://github.com/kardolus/chatgpt-cli/releases/download/v1.0.4/chatgpt-darwin-amd64"
     sha256 "bc0db3d33c1cefb1ee914435129a5dd85138a03945790d2e826e52923d483b4b"
@@ -11,7 +11,7 @@ class ChatgptCli < Formula
   end
 
   def install
-    bin.install buildpath/"chatgpt"
+    bin.install "chatgpt-darwin-arm64"
   end
 
   test do
