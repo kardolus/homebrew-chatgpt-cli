@@ -21,5 +21,19 @@ class ChatgptCli < Formula
   test do
     system "#{bin}/chatgpt", "--help"
   end
+
+  def caveats
+    <<~EOS
+      To enable history tracking across CLI calls, create a ~/.chatgpt-cli directory using the command:
+
+      mkdir -p ~/.chatgpt-cli
+
+      Additionally, set the OPENAI_API_KEY environment variable to your OpenAI API key:
+
+      export OPENAI_API_KEY="your_api_key"
+
+      You can add the above line to your shell profile (e.g., ~/.bashrc, ~/.zshrc, or ~/.bash_profile) to have the variable automatically set in new shell sessions.
+    EOS
+  end
 end
 
