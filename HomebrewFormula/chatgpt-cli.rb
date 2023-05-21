@@ -3,11 +3,11 @@ class ChatgptCli < Formula
   homepage "https://github.com/kardolus/chatgpt-cli"
 
   if Hardware::CPU.intel?
-    url "https://github.com/kardolus/chatgpt-cli/releases/download/v1.0.4/chatgpt-darwin-amd64"
-    sha256 "bc0db3d33c1cefb1ee914435129a5dd85138a03945790d2e826e52923d483b4b"
+    url "https://github.com/kardolus/chatgpt-cli/releases/download/v1.0.5/chatgpt-darwin-amd64"
+    sha256 "8e1fe533e6eab35d2579c37f182be029fe2803942e9e6c0e3d771f37d53c9b43"
   elsif Hardware::CPU.arm?
-    url "https://github.com/kardolus/chatgpt-cli/releases/download/v1.0.4/chatgpt-darwin-arm64"
-    sha256 "c3df40f107bc1df45f72780957fef47c12df167dc317898d85ab0e95a47ab542"
+    url "https://github.com/kardolus/chatgpt-cli/releases/download/v1.0.5/chatgpt-darwin-arm64"
+    sha256 "eb044433ca691856d96a0f8eded710e8a386eb749df3d6b9def297532ee497e2"
   end
 
   def install
