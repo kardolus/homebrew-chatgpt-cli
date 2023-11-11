@@ -1,14 +1,14 @@
 class ChatgptCli < Formula
   desc "A CLI for the OpenAI ChatGPT API"
   homepage "https://github.com/kardolus/chatgpt-cli"
-  version "1.3.4"
+  version "1.4.0"
 
   if Hardware::CPU.intel?
     url "https://github.com/kardolus/chatgpt-cli/releases/download/v#{version}/chatgpt-darwin-amd64"
-    sha256 "e4d354c636c07e7b983f90192147a831a182c1ffa10258f625f5e530973d426f"
+    sha256 "4f5219fde01a105dc4a9abbfccd8de6489c8f2fd7d137364ce427a5389b97772"
   elsif Hardware::CPU.arm?
     url "https://github.com/kardolus/chatgpt-cli/releases/download/v#{version}/chatgpt-darwin-arm64"
-    sha256 "bb83586f07ab6cfc2f536f9d5f5bed91cafc86009456a320d7f1e5cd5439e15d"
+    sha256 "8b0c04e24bc4ed106e3ac395b7e9ad543c7bfd735fd0ee280b4abe0845d3cd9b"
   end
 
   def install
