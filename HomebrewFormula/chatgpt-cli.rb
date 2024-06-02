@@ -1,5 +1,5 @@
 class ChatgptCli < Formula
-  desc "CLI for interacting with the OpenAI ChatGPT API"
+  desc "CLI for interacting with the OpenAI and Azure ChatGPT API"
   homepage "https://github.com/kardolus/chatgpt-cli"
   url "https://github.com/kardolus/chatgpt-cli/archive/refs/tags/v1.6.1.tar.gz"
   sha256 "47e46eda644382ad8ed5468eeb4cc88da6740acaf322176f94ebe13e8f67e529"
