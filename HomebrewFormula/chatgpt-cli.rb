@@ -1,26 +1,28 @@
 class ChatgptCli < Formula
-  desc "A CLI for the OpenAI ChatGPT API"
+  desc "CLI for interacting with the OpenAI ChatGPT API"
   homepage "https://github.com/kardolus/chatgpt-cli"
-  version "1.6.0"
+  url "https://github.com/kardolus/chatgpt-cli/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "47e46eda644382ad8ed5468eeb4cc88da6740acaf322176f94ebe13e8f67e529"
+  license "MIT"
 
-  if Hardware::CPU.intel?
-    url "https://github.com/kardolus/chatgpt-cli/releases/download/v#{version}/chatgpt-darwin-amd64"
-    sha256 "c80eefe5abfba22ce638c2ac0e4192ef3551b90c7607b53f98441f66f5f46165"
-  elsif Hardware::CPU.arm?
-    url "https://github.com/kardolus/chatgpt-cli/releases/download/v#{version}/chatgpt-darwin-arm64"
-    sha256 "36857cead0a0601d9c81995da0e13c33bf49b126fecc621821867ab3d8f25701"
-  end
+  depends_on "go" => :build
 
   def install
-    if Hardware::CPU.intel?
-        bin.install "chatgpt-darwin-amd64" => "chatgpt"
-    elsif Hardware::CPU.arm?
-        bin.install "chatgpt-darwin-arm64" => "chatgpt"
-    end
+    ldflags = %W[
+      -s -w
+      -X main.GitCommit=homebrew
+      -X main.GitVersion=v#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags:, output: bin/"chatgpt"), "./cmd/chatgpt"
+    generate_completions_from_executable(bin/"chatgpt", "--set-completions", base_name: "chatgpt")
   end
 
   test do
-    system "#{bin}/chatgpt", "--help"
+    config_output = shell_output("#{bin}/chatgpt --config")
+    assert_match "name", config_output, "Config output should include the name key"
+
+    version_output = shell_output("#{bin}/chatgpt --version")
+    assert_match "v#{version}", version_output, "Version output should include the correct version"
   end
 
   def caveats
