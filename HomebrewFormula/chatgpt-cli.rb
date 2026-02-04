@@ -1,8 +1,8 @@
 class ChatgptCli < Formula
   desc "CLI for interacting with the OpenAI and Azure ChatGPT API"
   homepage "https://github.com/kardolus/chatgpt-cli"
-  url "https://github.com/kardolus/chatgpt-cli/archive/refs/tags/v1.10.9.tar.gz"
-  sha256 "d11e7562ec4748f5b516017d3fcf36436dadf4fd972e3e0b9e45b45f593c9e1d"
+  url "https://github.com/kardolus/chatgpt-cli/archive/refs/tags/v1.10.10.tar.gz"
+  sha256 "340d716b965d83a9b6005718bf47dc05a484a0794a6b322b305d32d9987a1a57"
   license "MIT"
 
   depends_on "go" => :build
